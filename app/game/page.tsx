@@ -52,14 +52,6 @@ function GamePage() {
         }
     };
 
-    const handleTryAgain = () => {
-        setCurrentWordIndex(0);
-        setTimeLeft(30);
-        setScore(0); // Reset score
-        setGameOver(false);
-        setResult(null);
-    };
-
     if (loading) {
         return (
             <main className="flex items-center justify-center h-screen text-white bg-gradient-to-br from-green-500 to-blue-500">

@@ -1,11 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { useGameContext } from "@/context/GameContext";
 
-function StartPage() {
+type Word = {
+    word: string;
+    options: string[];
+    correct: string;
+};
+
+// Add Suspense
+function SearchParamsWrapper() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const { setWords, setLoading, loading } = useGameContext();
@@ -44,10 +51,10 @@ function StartPage() {
             // Remove Markdown code block delimiters (```json ... ```)
             jsonString = jsonString.replace(/```json/g, "").replace(/```/g, "").trim();
 
-            let parsedData = JSON.parse(jsonString); // Parse the JSON string
+            let parsedData: Word[] = JSON.parse(jsonString);
 
             // Shuffle options for each word
-            const shuffleArray = (array: any[]) => {
+            const shuffleArray = (array: string[]) => {
                 for (let i = array.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
                     [array[i], array[j]] = [array[j], array[i]]; // Swap elements
@@ -71,7 +78,7 @@ function StartPage() {
 
     useEffect(() => {
         fetchWords();
-    }, [difficulty, language1, language2]); // Refetch if query parameters change
+    }, [difficulty, fetchWords, language1, language2]); // Refetch if query parameters change
 
     const handleStartGame = () => {
         router.push("/game");
@@ -124,4 +131,11 @@ function StartPage() {
     );
 }
 
-export default StartPage;
+// Add Suspense Wrapper
+export default function StartPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <SearchParamsWrapper />
+        </Suspense>
+    );
+}
