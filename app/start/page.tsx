@@ -78,7 +78,7 @@ function SearchParamsWrapper() {
 
     useEffect(() => {
         fetchWords();
-    }, [difficulty, fetchWords, language1, language2]); // Refetch if query parameters change
+    }, [difficulty, language1, language2]); // Refetch if query parameters change
 
     const handleStartGame = () => {
         router.push("/game");
