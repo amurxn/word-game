@@ -21,7 +21,7 @@ export async function POST(req: Request) {
                     },
                     {
                         role: "user",
-                        content: `Generate 10 words in ${language1} with 3 translations in ${language2} for a game. Use today's date (${date}) as a context to select unique words. Ensure variety in the generated words. The difficulty level should be ${difficulty}. Provide the output in JSON format like: [{"word": "Apple", "options": ["Jablko", "Hruška", "Banán"], "correct": "Jablko"}].`,
+                        content: `Generate 30 words in ${language1} with 3 translations in ${language2} for a game. Use today's date (${date}) as a context to select unique words. Ensure variety in the generated words. The difficulty level should be ${difficulty}. Provide the output in JSON format like: [{"word": "Apple", "options": ["Jablko", "Hruška", "Banán"], "correct": "Jablko"}].`,
                     },
                 ],
                 stream: false,
