@@ -16,6 +16,10 @@ function GamePage() {
     const [gameOver, setGameOver] = useState(false);
     const [result, setResult] = useState<string | null>(null); // "win" or "lose"
 
+    // Sound file paths
+    const correctAnswerSound = "correct.mp3";
+    const wrongAnswerSound = "wrong.mp3";
+
     // Redirect to home if words are missing
     useEffect(() => {
         if (!loading && !words) {
@@ -35,10 +39,16 @@ function GamePage() {
         }
     }, [timeLeft, gameOver]);
 
+    const playSound = (soundPath: string) => {
+        const audio = new Audio(soundPath);
+        audio.play();
+    };
+
     const handleAnswer = (answer: string) => {
         if (gameOver || !words) return;
 
         if (answer === words[currentWordIndex].correct) {
+            playSound(correctAnswerSound); // Play correct answer sound
             setScore((prev) => prev + 1); // Increment score for correct answer
             if (currentWordIndex === words.length - 1) {
                 setGameOver(true);
@@ -47,6 +57,7 @@ function GamePage() {
                 setCurrentWordIndex((prev) => prev + 1);
             }
         } else {
+            playSound(wrongAnswerSound); // Play wrong answer sound
             setGameOver(true);
             setResult("lose");
         }
