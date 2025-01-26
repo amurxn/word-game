@@ -1,0 +1,52 @@
+[
+  {
+    "word": "Apple",
+    "options": ["Jablko", "Hruška", "Banán"],
+    "correct": "Jablko"
+  },
+  {
+    "word": "Dog",
+    "options": ["Kočka", "Pes", "Pták"],
+    "correct": "Pes"
+  },
+  {
+    "word": "House",
+    "options": ["Dům", "Strom", "Auto"],
+    "correct": "Dům"
+  },
+  {
+    "word": "Car",
+    "options": ["Letadlo", "Loď", "Auto"],
+    "correct": "Auto"
+  },
+  {
+    "word": "Tree",
+    "options": ["Květina", "Strom", "Řeka"],
+    "correct": "Strom"
+  },
+  {
+    "word": "Milk",
+    "options": ["Mléko", "Voda", "Pivo"],
+    "correct": "Mléko"
+  },
+  {
+    "word": "Chair",
+    "options": ["Stůl", "Židle", "Postel"],
+    "correct": "Židle"
+  },
+  {
+    "word": "Book",
+    "options": ["Papír", "Kniha", "Sešit"],
+    "correct": "Kniha"
+  },
+  {
+    "word": "Sun",
+    "options": ["Měsíc", "Hvězda", "Slunce"],
+    "correct": "Slunce"
+  },
+  {
+    "word": "Water",
+    "options": ["Víno", "Voda", "Šťáva"],
+    "correct": "Voda"
+  }
+]
